@@ -1,6 +1,8 @@
 import turtle
 from states import States
 from scoreboard import Scoreboard
+import pandas
+
 
 screen = turtle.Screen()
 screen.title("U.S. States Game")
@@ -26,6 +28,14 @@ while len(player_guesses) < 50:
     answer_state = screen.textinput(title=f"{len(player_guesses)}/50 States correct", prompt="What's another state's name?").title()
 
     # Checking the guess with States list.
+    if answer_state == "Exit":
+        missing_states = []
+        for state in states.states_list:
+            if state not in player_guesses:
+                missing_states.append(state)
+        new_data = pandas.DataFrame(missing_states)
+        new_data.to_csv("states_to_learn.csv")
+        break
     if answer_state in states.states_list:
         # Adding the correct guesses in the list.
         if answer_state not in player_guesses:
@@ -37,5 +47,3 @@ while len(player_guesses) < 50:
 
             states.write_state_name(answer_state_xcor, answer_state_ycor, answer_state)
 
-
-screen.exitonclick()
