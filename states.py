@@ -13,13 +13,8 @@ class States(Turtle):
         self.states_file = None
         self.hideturtle()
         self.penup()
-        # self.answer_state
         self.csv_file = "50_states.csv"
         self.states_list = []
-
-    #
-    # def get_answer(self, screen=None):
-    #     self.answer_state = screen.textinput(title="Guess the State", prompt="What's another state's name?").title()
 
     def get_csv_data(self):
         self.states_file = pandas.read_csv(self.csv_file)

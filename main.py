@@ -19,7 +19,6 @@ scoreboard = Scoreboard()
 # Working with csv file
 states.get_csv_data()
 player_guesses = []
-game_is_on = True
 
 while len(player_guesses) < 50:
 
@@ -35,10 +34,6 @@ while len(player_guesses) < 50:
             answer_state_index = states.states_list.index(answer_state)
             answer_state_xcor = states.states_xcor_list[answer_state_index]
             answer_state_ycor = states.states_ycor_list[answer_state_index]
-            # print(answer_state_index, answer_state_xcor, answer_state_ycor)
-            #
-            # scoreboard.update_scoreboard()
-            #
 
             states.write_state_name(answer_state_xcor, answer_state_ycor, answer_state)
 
