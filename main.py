@@ -43,4 +43,3 @@ while len(player_guesses) < 50:
             answer_state_ycor = states.states_ycor_list[answer_state_index]
 
             states.write_state_name(answer_state_xcor, answer_state_ycor, answer_state)
-
